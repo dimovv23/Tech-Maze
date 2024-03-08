@@ -4,7 +4,7 @@ import { BsFacebook, BsInstagram, BsTwitterX } from "react-icons/bs";
 
 const FooterComp = () => {
   return (
-    <Footer container className="border-t-8">
+    <Footer container className="border-t-8 dark:border-cyan-900">
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid w-full justify-between sm:flex md:grid-cols-1">
           <div className="mt-5">
@@ -47,9 +47,9 @@ const FooterComp = () => {
             year={new Date().getFullYear()}
           />
           <div className="flex gap-6  mt-4 sm:justify-center">
-            <Footer.Icon icon={BsFacebook} />
-            <Footer.Icon icon={BsInstagram} />
-            <Footer.Icon icon={BsTwitterX} />
+            <Footer.Icon href="#" icon={BsFacebook} />
+            <Footer.Icon href="#" icon={BsInstagram} />
+            <Footer.Icon href="#" icon={BsTwitterX} />
           </div>
         </div>
       </div>
