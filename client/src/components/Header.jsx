@@ -74,9 +74,7 @@ const Header = () => {
         <Navbar.Link active={path === "/"} as={"div"}>
           <Link to="/">Home</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/dashboard"} as={"div"}>
-          <Link to="/dashboard">Dashboard</Link>
-        </Navbar.Link>
+        {/* TODO: Add rest of the pages */}
       </Navbar.Collapse>
     </Navbar>
   );
