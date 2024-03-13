@@ -18,7 +18,7 @@ const postScheme = new mongoose.Schema(
     image: {
       type: String,
       default:
-        "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2017/11/how-to-write-a-blog-post.jpeg",
+        "https://www.blogtyrant.com/wp-content/uploads/2015/02/blogging-strategy.png",
     },
     category: {
       type: String,

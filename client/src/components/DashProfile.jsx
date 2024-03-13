@@ -74,6 +74,7 @@ const DashProfile = () => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setUploadingProgress(null);
           setImageFileUrl(downloadURL);
           setFormData({
             ...formData,
@@ -120,7 +121,6 @@ const DashProfile = () => {
         return;
       } else {
         dispatch(updateSuccess(data));
-        setUploadingProgress(null);
         setUpdateUserSuccess("Updated successfully!");
       }
     } catch (error) {
