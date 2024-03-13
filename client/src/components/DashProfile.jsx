@@ -1,5 +1,6 @@
 import { TextInput, Button, Alert, Modal } from "flowbite-react";
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   getDownloadURL,
@@ -23,7 +24,7 @@ import { useDispatch } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 const DashProfile = () => {
-  const { currentUser } = useSelector((state) => state.user);
+  const { currentUser, loading } = useSelector((state) => state.user);
   const [imageFile, setImageFile] = useState(null);
   const [imageFileUrl, setImageFileUrl] = useState(null);
   const [uploadingProgrss, setUploadingProgress] = useState(null);
@@ -119,6 +120,7 @@ const DashProfile = () => {
         return;
       } else {
         dispatch(updateSuccess(data));
+        setUploadingProgress(null);
         setUpdateUserSuccess("Updated successfully!");
       }
     } catch (error) {
@@ -225,9 +227,25 @@ const DashProfile = () => {
           placeholder="Password"
           onChange={handleChange}
         />
-        <Button type="submit" outline gradientDuoTone="greenToBlue">
-          Update
+        <Button
+          type="submit"
+          outline
+          gradientDuoTone="greenToBlue"
+          disabled={loading || imageUploading}
+        >
+          {loading ? "Loading..." : "Update"}
         </Button>
+        {currentUser.isAdmin && (
+          <Link to={"/create-post"}>
+            <Button
+              type="submit"
+              gradientDuoTone="tealToLime"
+              className="w-full"
+            >
+              Create Post
+            </Button>
+          </Link>
+        )}
       </form>
       <div className="text-red-500 flex justify-between mt-4">
         <span className="cursor-pointer" onClick={() => setShowModal(true)}>
