@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import { Outlet, Navigate } from "react-router-dom";
 
-const AdminRoute = () => {
+const AuthorRoute = () => {
   const { currentUser } = useSelector((state) => state.user);
 
-  return currentUser.isAdmin ? <Outlet /> : <Navigate to={"/sign-in"} />;
+  return currentUser.isAuthor ? <Outlet /> : <Navigate to={"/sign-in"} />;
 };
 
-export default AdminRoute;
+export default AuthorRoute;

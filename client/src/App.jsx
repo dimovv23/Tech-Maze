@@ -6,7 +6,7 @@ import SignUp from "./pages/SignUp";
 import Header from "./components/Header";
 import FooterComp from "./components/FooterComp";
 import PrivateRoute from "./components/PrivateRoute";
-import AdminRoute from "./components/AdminRoute";
+import AuthorRoute from "./components/AuthorRoute";
 import CreatePost from "./pages/CreatePost";
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
-        <Route element={<AdminRoute />}>
+        <Route element={<AuthorRoute />}>
           <Route path="/create-post" element={<CreatePost />} />
         </Route>
       </Routes>

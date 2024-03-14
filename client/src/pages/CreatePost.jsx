@@ -80,7 +80,7 @@ const CreatePost = () => {
             <option value="software">Software</option>
           </Select>
         </div>
-        <div className="flex gap-4 items-center justify-between border-4 border-blue-400 border-dotted p-3">
+        <div className="flex gap-4 items-center justify-between ">
           <FileInput
             type="file"
             accept="image/*"
