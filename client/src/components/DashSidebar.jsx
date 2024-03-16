@@ -48,19 +48,18 @@ const DashSidebar = () => {
               Profile
             </Sidebar.Item>
           </Link>
-          {currentUser.isAdmin ||
-            (currentUser.isAuthor && (
-              <Link to="/dashboard?tab=news">
-                <Sidebar.Item
-                  active={tab === "news"}
-                  icon={HiDocumentText}
-                  labelColor="dark"
-                  as="div"
-                >
-                  Posts
-                </Sidebar.Item>
-              </Link>
-            ))}
+          {(currentUser.isAdmin || currentUser.isAuthor) && (
+            <Link to="/dashboard?tab=news">
+              <Sidebar.Item
+                active={tab === "news"}
+                icon={HiDocumentText}
+                labelColor="dark"
+                as="div"
+              >
+                Posts
+              </Sidebar.Item>
+            </Link>
+          )}
           <Sidebar.Item
             icon={HiArrowSmRight}
             className="cursor-pointer"
