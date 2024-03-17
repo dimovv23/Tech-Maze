@@ -8,6 +8,8 @@ import FooterComp from "./components/FooterComp";
 import PrivateRoute from "./components/PrivateRoute";
 import AuthorRoute from "./components/AuthorRoute";
 import CreatePost from "./pages/CreatePost";
+import UpdatePost from "./pages/UpdatePost";
+import AdminRoute from "./components/AdminRoute";
 
 const App = () => {
   return (
@@ -22,6 +24,10 @@ const App = () => {
         </Route>
         <Route element={<AuthorRoute />}>
           <Route path="/create-post" element={<CreatePost />} />
+          <Route path="/update-post/:postId" element={<UpdatePost />} />
+        </Route>
+        <Route element={<AdminRoute />}>
+          <Route path="/update-post/:postId" element={<UpdatePost />} />
         </Route>
       </Routes>
       <FooterComp />
