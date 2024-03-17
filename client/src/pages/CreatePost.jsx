@@ -77,7 +77,7 @@ const CreatePost = () => {
         return;
       } else {
         setPublishError(null);
-        navigate(`/post/${data.slug}`);
+        navigate(`/post/${data.savedPost.slug}`);
         console.log(data);
       }
     } catch (error) {
