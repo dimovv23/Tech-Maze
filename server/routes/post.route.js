@@ -4,12 +4,14 @@ import {
   create,
   getPosts,
   deletePost,
+  getAdminPosts,
 } from "../controllers/post.controller.js";
 
 const router = express.Router();
 
 router.post("/create", verifyToken, create);
 router.get("/getposts", getPosts);
+router.get("/getAdminPosts", verifyToken, getAdminPosts);
 router.delete("/deletepost/:postId/:userId", verifyToken, deletePost);
 
 export default router;

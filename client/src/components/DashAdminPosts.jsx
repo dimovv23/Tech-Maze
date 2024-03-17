@@ -15,7 +15,7 @@ const DashPosts = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
+        const res = await fetch(`/api/post/getAdminPosts`);
         const data = await res.json();
         if (res.ok) {
           setUserPosts(data.posts);
@@ -37,9 +37,7 @@ const DashPosts = () => {
   const handleShowMore = async () => {
     const startIndex = userPosts.length;
     try {
-      const res = await fetch(
-        `/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
-      );
+      const res = await fetch(`/api/post/getposts?startIndex=${startIndex}`);
       const data = await res.json();
       if (res.ok) {
         setUserPosts((prev) => [...prev, ...data.posts]);
@@ -81,14 +79,14 @@ const DashPosts = () => {
      dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500"
     >
       {errorMessage && <Alert color="failure">{errorMessage}</Alert>}
-      {userPosts.length <= 0 && <Alert>You dont have any post yet</Alert>}
-      {currentUser.isAuthor && userPosts.length > 0 && (
+      {currentUser.isAdmin && userPosts.length > 0 ? (
         <>
           <Table hoverable className="shadow-md">
             <Table.Head>
               <Table.HeadCell>Date updated</Table.HeadCell>
               <Table.HeadCell>Post image</Table.HeadCell>
               <Table.HeadCell>Date Title</Table.HeadCell>
+              <Table.HeadCell>Author ID</Table.HeadCell>
               <Table.HeadCell>Category</Table.HeadCell>
               <Table.HeadCell>Delete</Table.HeadCell>
               <Table.HeadCell>
@@ -118,6 +116,7 @@ const DashPosts = () => {
                       {post.title}
                     </Link>
                   </Table.Cell>
+                  <Table.Cell>{post.userId}</Table.Cell>
                   <Table.Cell>{post.category}</Table.Cell>
                   <Table.Cell>
                     <span
@@ -151,6 +150,8 @@ const DashPosts = () => {
             </button>
           )}
         </>
+      ) : (
+        <p></p>
       )}
       <Modal
         show={showModal}
