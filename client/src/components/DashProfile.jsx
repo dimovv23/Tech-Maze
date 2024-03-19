@@ -230,7 +230,7 @@ const DashProfile = () => {
         <Button
           type="submit"
           outline
-          gradientDuoTone="greenToBlue"
+          gradientDuoTone="redToYellow"
           disabled={loading || imageUploading}
         >
           {loading ? "Loading..." : "Update"}
@@ -239,7 +239,7 @@ const DashProfile = () => {
           <Link to={"/create-post"}>
             <Button
               type="submit"
-              gradientDuoTone="tealToLime"
+              gradientDuoTone="pinkToOrange"
               className="w-full"
             >
               Create Post

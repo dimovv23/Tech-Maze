@@ -126,7 +126,7 @@ const CreatePost = () => {
           />
           <Button
             type="button"
-            gradientDuoTone="purpleToBlue"
+            gradientDuoTone="pinkToOrange"
             outline
             disabled={imageUploadProgress}
             onClick={handleUploadImage}
@@ -163,7 +163,7 @@ const CreatePost = () => {
             });
           }}
         />
-        <Button type="submit" gradientDuoTone="purpleToBlue">
+        <Button type="submit" gradientDuoTone="pinkToOrange">
           Publish
         </Button>
         {publishError && <Alert color="failure">{publishError}</Alert>}

@@ -2,6 +2,7 @@ import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
+import logoImg from "/logo.png";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({});
@@ -45,14 +46,21 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen mt-20">
-      <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
+      <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-start gap-5">
         <div className="flex-1">
           <Link to="/" className="font-bold dark:text-white text-4xl">
-            Logo
+            <div className="flex items-center justify-center">
+              <span className="mx-1">
+                <img src={logoImg} alt="logo" width={120} />
+              </span>
+            </div>
           </Link>
-          <p className="text-sm mt-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut
-            nisi metus. Aliquam non lacinia sem. Duis iaculis elementum dapibus.
+          <p className="text-2xl md:text-3xl my-1 font-semibold text-center md:text-left">
+            Welcome to Tech Maze!
+          </p>
+          <p className="text-base text-center md:text-left">
+            Sign in or create an account! Let's explore the world of technology
+            together!
           </p>
         </div>
         <div className="flex-1">
@@ -86,7 +94,7 @@ const SignUp = () => {
             </div>
             <Button
               type="submit"
-              gradientDuoTone="greenToBlue"
+              gradientDuoTone="pinkToOrange"
               disabled={loading}
             >
               {loading ? (

@@ -6,6 +6,7 @@ import { FiSun } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../redux/theme/themeSlice";
 import { signOutSuccess } from "../redux/user/userSlice";
+import logoImg from "/logo.png";
 
 const Header = () => {
   const path = useLocation().pathname;
@@ -36,7 +37,12 @@ const Header = () => {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
-        Logo
+        <div className="flex items-center">
+          <span className="mx-1">
+            <img src={logoImg} alt="logo" width={50} />
+          </span>
+          Tech Maze
+        </div>
       </Link>
       <form>
         <TextInput
@@ -81,7 +87,7 @@ const Header = () => {
           </Dropdown>
         ) : (
           <Link to="/sign-in">
-            <Button gradientDuoTone="greenToBlue" outline>
+            <Button gradientDuoTone="pinkToOrange" outline>
               Sign In
             </Button>
           </Link>

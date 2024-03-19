@@ -159,7 +159,7 @@ const UpdatePost = () => {
           />
           <Button
             type="button"
-            gradientDuoTone="purpleToBlue"
+            gradientDuoTone="pinkToOrange"
             outline
             disabled={imageUploadProgress}
             onClick={handleUploadImage}
@@ -197,7 +197,7 @@ const UpdatePost = () => {
           }}
           value={formData.content}
         />
-        <Button type="submit" gradientDuoTone="purpleToBlue">
+        <Button type="submit" gradientDuoTone="pinkToOrange">
           Update
         </Button>
         {publishError && <Alert color="failure">{publishError}</Alert>}
