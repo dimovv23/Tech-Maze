@@ -59,7 +59,7 @@ const SignUp = () => {
             Welcome to Tech Maze!
           </p>
           <p className="text-base text-center md:text-left">
-            Sign in or create an account! Let's explore the world of technology
+            Create an account and let's explore the world of technology
             together!
           </p>
         </div>
