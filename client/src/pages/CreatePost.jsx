@@ -78,7 +78,6 @@ const CreatePost = () => {
       } else {
         setPublishError(null);
         navigate(`/post/${data.savedPost.slug}`);
-        console.log(data);
       }
     } catch (error) {
       setPublishError("Something went wrong");

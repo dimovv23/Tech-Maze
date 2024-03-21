@@ -10,6 +10,7 @@ import AuthorRoute from "./components/AuthorRoute";
 import CreatePost from "./pages/CreatePost";
 import UpdatePost from "./pages/UpdatePost";
 import AdminRoute from "./components/AdminRoute";
+import PostPage from "./pages/PostPage";
 
 const App = () => {
   return (
@@ -29,6 +30,8 @@ const App = () => {
         <Route element={<AdminRoute />}>
           <Route path="/update-post/:postId" element={<UpdatePost />} />
         </Route>
+
+        <Route path="/post/:postSlug" element={<PostPage />} />
       </Routes>
       <FooterComp />
     </BrowserRouter>
