@@ -11,10 +11,12 @@ import CreatePost from "./pages/CreatePost";
 import UpdatePost from "./pages/UpdatePost";
 import AdminRoute from "./components/AdminRoute";
 import PostPage from "./pages/PostPage";
+import TopScroll from "./components/TopScroll";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <TopScroll />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
