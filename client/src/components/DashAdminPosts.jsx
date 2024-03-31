@@ -85,7 +85,7 @@ const DashPosts = () => {
             <Table.Head>
               <Table.HeadCell>Date updated</Table.HeadCell>
               <Table.HeadCell>Post image</Table.HeadCell>
-              <Table.HeadCell>Date Title</Table.HeadCell>
+              <Table.HeadCell>Post Title</Table.HeadCell>
               <Table.HeadCell>Author ID</Table.HeadCell>
               <Table.HeadCell>Category</Table.HeadCell>
               <Table.HeadCell>Delete</Table.HeadCell>
