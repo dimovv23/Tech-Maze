@@ -6,6 +6,7 @@ import {
   HiUserGroup,
 } from "react-icons/hi";
 import { FaComments } from "react-icons/fa";
+import { VscGraph } from "react-icons/vsc";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,7 +44,19 @@ const DashSidebar = () => {
   return (
     <Sidebar className="w-full md:w-56">
       <Sidebar.Items>
-        <Sidebar.ItemGroup>
+        <Sidebar.ItemGroup className="flex flex-col">
+          {currentUser.isAdmin && (
+            <Link to="/dashboard?tab=dash-admin">
+              <Sidebar.Item
+                active={tab === "dash-admin"}
+                icon={VscGraph}
+                labelColor="dark"
+                as="div"
+              >
+                Admin Dashboard
+              </Sidebar.Item>
+            </Link>
+          )}
           <Link to="/dashboard?tab=profile">
             <Sidebar.Item
               active={tab === "profile"}
@@ -57,7 +70,6 @@ const DashSidebar = () => {
           {currentUser.isAuthor && (
             <Link to="/dashboard?tab=my-posts">
               <Sidebar.Item
-                className="my-2"
                 active={tab === "my-posts"}
                 icon={HiDocumentText}
                 labelColor="dark"

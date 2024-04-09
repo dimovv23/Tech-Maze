@@ -6,6 +6,7 @@ import DashPosts from "../components/DashPosts";
 import DashAdminPosts from "../components/DashAdminPosts";
 import DashUsers from "../components/DashUsers";
 import DashComments from "../components/DashComments";
+import DashboardComp from "../components/DashboardComp";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -27,6 +28,7 @@ const Dashboard = () => {
       {tab === "all-posts" && <DashAdminPosts />}
       {tab === "users" && <DashUsers />}
       {tab === "comments" && <DashComments />}
+      {tab === "dash-admin" && <DashboardComp />}
     </div>
   );
 };
