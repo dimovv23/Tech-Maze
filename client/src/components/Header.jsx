@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <Navbar className="border-b-2">
+    <Navbar className="sticky top-0 w-full z-50 border-b-2 border-orange-300 rounded-b-lg dark:bg-stone-950 dark:border-orange-300">
       <Link
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"

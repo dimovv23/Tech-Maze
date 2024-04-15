@@ -71,9 +71,6 @@ const DashboardComp = () => {
     }
   }, [currentUser]);
 
-  console.log(comments);
-  console.log(numOfComments);
-  console.log(lastMonthComments);
   return (
     <div className="p-3 md:mx-auto">
       <div className="flex justify-center gap-4 flex-wrap">
