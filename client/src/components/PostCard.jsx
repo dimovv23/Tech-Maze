@@ -5,7 +5,7 @@ import { FaRegClock } from "react-icons/fa";
 const PostCard = ({ post }) => {
   return (
     <div
-      className="group relative w-full border h-[300px] overflow-hidden 
+      className="group relative w-full border h-[320px] overflow-hidden 
     sm:w-[360px] border-gray-600 rounded-md"
     >
       <Link to={`/post/${post.slug}`}>
@@ -30,8 +30,8 @@ const PostCard = ({ post }) => {
         </div>
         <Link
           to={`/post/${post.slug}`}
-          className="z-10 group-hover:bottom-0 absolute bottom-[-200px] left-0 right-0
-           border border-red-400 text-white hover:bg-gradient-to-tr from-red-400 via-orange-500 to-pink-500  transition-all duration-300 
+          className="dark:text-white z-10 group-hover:bottom-0 absolute bottom-[-200px] left-0 right-0
+           border border-red-400 text-stone-950 hover:text-white hover:bg-gradient-to-tr from-red-400 via-orange-500 to-pink-500  transition-all duration-300 
            text-center py-2 rounded-md m-2 !rounded-tl-none !rounded-br-none"
         >
           Read article

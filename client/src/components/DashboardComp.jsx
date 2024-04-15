@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import {
-  HiUser,
-  HiArrowSmRight,
-  HiDocumentText,
-  HiUserGroup,
-  HiArrowNarrowUp,
-} from "react-icons/hi";
+import { HiDocumentText, HiUserGroup, HiArrowNarrowUp } from "react-icons/hi";
 import { FaComments } from "react-icons/fa";
 import { Button, Table } from "flowbite-react";
 import { Link } from "react-router-dom";
@@ -198,13 +192,15 @@ const DashboardComp = () => {
               posts.map((post) => (
                 <Table.Body key={post._id} className="divide-y">
                   <Table.Row className="bg-white dark:bg-gray-800 dark:border-gray-700">
-                    <Table.Cell>
-                      <img
-                        src={post.image}
-                        alt="profilePicture"
-                        className="w-14 h-10 rounded-md object-cover"
-                      />
-                    </Table.Cell>
+                    <Link className="w-fit" to={`/post/${post.slug}`}>
+                      <Table.Cell>
+                        <img
+                          src={post.image}
+                          alt="profilePicture"
+                          className="w-14 h-10 rounded-md object-cover"
+                        />
+                      </Table.Cell>
+                    </Link>
                     <Table.Cell className="w-96">{post.title}</Table.Cell>
                     <Table.Cell className="w-5">{post.category}</Table.Cell>
                   </Table.Row>
