@@ -85,12 +85,12 @@ const Home = () => {
         {otherPosts &&
           otherPosts.map((post) => (
             <Link to={`/post/${post.slug}`}>
-              <div className="flex justify-between items-start border-t-[1px] pt-6 dark:border-stone-500  border-stone-300 hover:opacity-80">
-                <div className="w-[75%] md:w-[25%]">
+              <div className="grid grid-cols-1 md:flex justify-between items-start border-t-[1px] pt-6 dark:border-stone-500 border-stone-300 hover:opacity-80">
+                <div className="md:w-[25%] mb-4 md:mb-0">
                   <span className="text-orange-600 text-sm">
                     {post.category}
                   </span>
-                  <h3 className="text-base 2xl:text-2xl font-semibold ">
+                  <h3 className="text-base 2xl:text-3xl font-semibold ">
                     {post.title}
                   </h3>
                   <span className="pt-3 italic flex items-center gap-1 text-xs">
@@ -105,13 +105,13 @@ const Home = () => {
                     min read
                   </span>
                 </div>
-                <p className="w-[25%] invisible md:visible 2xl:text-lg text-stone-500 dark:text-stone-400">
+                <p className="w-full md:w-[25%] md:block hidden 2xl:text-xl text-stone-500 dark:text-stone-400">
                   {post.content}
                 </p>
                 <img
                   src={post.image}
                   alt="post image"
-                  className="w-[210px] h-[100px] lg:w-[420px] lg:h-[200px] object-cover"
+                  className="w-full h-auto object-cover md:w-1/2 md:max-w-[300px] lg:max-w-[420px]"
                 />
               </div>
             </Link>
