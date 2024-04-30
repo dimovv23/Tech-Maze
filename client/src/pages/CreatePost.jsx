@@ -111,10 +111,14 @@ const CreatePost = () => {
             }}
           >
             <option value="uncategorized">Select a category</option>
+            <option value="ai">AI</option>
+            <option value="apps">Apps</option>
             <option value="coding">Coding</option>
             <option value="crypto">Crypto</option>
             <option value="hardware">Hardware</option>
-            <option value="software">Software</option>
+            <option value="security">Security</option>
+            <option value="social">Social</option>
+            <option value="transportation">Transportation</option>
           </Select>
         </div>
         <div className="flex gap-4 items-center justify-between ">

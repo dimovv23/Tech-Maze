@@ -15,7 +15,6 @@ const Home = () => {
         const res = await fetch("/api/post/getposts?limit=9");
         if (res.ok) {
           const data = await res.json();
-          console.log(data);
           setLatestPost(data.posts[0]);
           setNextToLatestPosts(data.posts.slice(1, 5));
           setOtherPosts(
@@ -64,7 +63,7 @@ const Home = () => {
         <div className="flex flex-col h-full gap-6 lg:col-span-1">
           {nextToLatestPosts &&
             nextToLatestPosts.map((post) => (
-              <Link to={`/post/${post.slug}`}>
+              <Link key={post._id} to={`/post/${post.slug}`}>
                 <div className="w-full border-b-[1px] pb-3 dark:border-stone-500  border-stone-300 lg:w-[75%]">
                   <span className="text-sm 2xl:text-xl text-orange-600 flex pb-1">
                     {post.category}
@@ -90,7 +89,7 @@ const Home = () => {
       <div className="flex flex-col gap-12">
         {otherPosts &&
           otherPosts.map((post) => (
-            <Link to={`/post/${post.slug}`}>
+            <Link key={post._id} to={`/post/${post.slug}`}>
               <div className="grid grid-cols-1 md:flex justify-between items-start border-t-[1px] pt-6 dark:border-stone-500 border-stone-300 hover:opacity-80">
                 <div className="md:w-[25%] mb-4 md:mb-0">
                   <span className="text-orange-600 text-sm 2xl:text-xl">

@@ -12,6 +12,7 @@ import UpdatePost from "./pages/UpdatePost";
 import AdminRoute from "./components/AdminRoute";
 import PostPage from "./pages/PostPage";
 import TopScroll from "./components/TopScroll";
+import Search from "./pages/Search";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/search" element={<Search />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
