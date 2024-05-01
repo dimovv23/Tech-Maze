@@ -6,6 +6,19 @@ body {
   height: 100vh;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffbd71;
+  border-radius: 5px;
+}
+
 .ql-editor {
   font-size: 1.05rem;
 }

@@ -46,7 +46,7 @@ const Home = () => {
             className="lg:col-span-2 hover:opacity-80"
           >
             <div className="flex flex-col gap-4">
-              <h2 className="font-semibold text-3xl lg:text-4xl 2xl:text-6xl ">
+              <h2 className="font-semibold text-3xl 2xl:text-5xl ">
                 {latestPost.title}
               </h2>
               <span className="text-orange-600 2xl:text-2xl">
@@ -65,13 +65,13 @@ const Home = () => {
             nextToLatestPosts.map((post) => (
               <Link key={post._id} to={`/post/${post.slug}`}>
                 <div className="w-full border-b-[1px] pb-3 dark:border-stone-500  border-stone-300 lg:w-[75%]">
-                  <span className="text-sm 2xl:text-xl text-orange-600 flex pb-1">
+                  <span className="text-sm 2xl:text-lg text-orange-600 flex pb-1">
                     {post.category}
                   </span>
-                  <h3 className="text-base xl:text-2xl 2xl:text-3xl font-semibold hover:text-orange-400 dark:hover:text-orange-300">
+                  <h3 className="text-base xl:text-2xl 2xl:text-2xl font-semibold hover:text-orange-400 dark:hover:text-orange-300">
                     {post.title}
                   </h3>
-                  <span className="pt-2 flex italic items-center justify-end gap-1 text-xs 2xl:text-base">
+                  <span className="pt-2 flex italic items-center justify-end gap-1 text-xs 2xl:text-sm">
                     <FaRegClock size={12} />
                     {(post.content.length / 1000).toFixed(0) > 0
                       ? (post.content.length / 1000).toFixed(0)
@@ -95,7 +95,7 @@ const Home = () => {
                   <span className="text-orange-600 text-sm 2xl:text-xl">
                     {post.category}
                   </span>
-                  <h3 className="text-base xl:text-2xl 2xl:text-3xl font-semibold ">
+                  <h3 className="text-base 2xl:text-3xl font-semibold ">
                     {post.title}
                   </h3>
                   <span className="pt-3 italic flex items-center gap-1 text-xs 2xl:text-sm">

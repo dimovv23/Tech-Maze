@@ -5,10 +5,10 @@ const CallToAction = () => {
   return (
     <div className="flex flex-col md:flex-row mb-6 gap-8">
       <div className="flex flex-col justify-center gap-2 2xl:gap-4 text-center md:text-start">
-        <h2 className="font-semibold text-2xl sm:text-4xl 2xl:text-5xl text-white">
+        <h2 className="font-semibold text-2xl sm:text-4xl text-white">
           Overwhelmed by Long Reads?
         </h2>
-        <p className="text-sm sm:text-lg 2xl:text-2xl text-stone-400">
+        <p className="text-sm sm:text-lg 2xl:text-xl text-stone-400">
           Use our AI summarizer to turn detailed articles into easy-to-read
           summaries. Perfect for skimming through information fast!
         </p>

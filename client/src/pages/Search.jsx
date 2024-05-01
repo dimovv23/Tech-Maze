@@ -148,9 +148,11 @@ const Search = () => {
               <option value="apps">Apps</option>
               <option value="coding">Coding</option>
               <option value="crypto">Crypto</option>
+              <option value="games">Games</option>
               <option value="hardware">Hardware</option>
               <option value="security">Security</option>
               <option value="social">Social</option>
+              <option value="startups">Startups</option>
               <option value="transportation">Transportation</option>
             </Select>
           </div>
