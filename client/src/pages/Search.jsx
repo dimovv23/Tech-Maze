@@ -144,16 +144,16 @@ const Search = () => {
               className=""
             >
               <option value="uncategorized">Uncategorized</option>
-              <option value="ai">AI</option>
-              <option value="apps">Apps</option>
-              <option value="coding">Coding</option>
-              <option value="crypto">Crypto</option>
-              <option value="games">Games</option>
-              <option value="hardware">Hardware</option>
-              <option value="security">Security</option>
-              <option value="social">Social</option>
-              <option value="startups">Startups</option>
-              <option value="transportation">Transportation</option>
+              <option value="AI">AI</option>
+              <option value="Apps">Apps</option>
+              <option value="Coding">Coding</option>
+              <option value="Crypto">Crypto</option>
+              <option value="Games">Games</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Security">Security</option>
+              <option value="Social">Social</option>
+              <option value="Startups">Startups</option>
+              <option value="Transportation">Transportation</option>
             </Select>
           </div>
           <Button type="submit" gradientDuoTone="pinkToOrange">
