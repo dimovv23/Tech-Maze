@@ -128,3 +128,29 @@ export const getUser = async (req, res, next) => {
     next(error);
   }
 };
+
+export const updateUserRole = async (req, res, next) => {
+  if (!req.user.isAdmin) {
+    return next(errorHandler(403, "You are not allowed to update this user"));
+  }
+  const { isAdmin, isAuthor } = req.body;
+
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.userId,
+      {
+        $set: {
+          ...(isAdmin !== undefined && { isAdmin }),
+          ...(isAuthor !== undefined && { isAuthor }),
+        },
+      },
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    next(error);
+  }
+};

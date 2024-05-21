@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Table, Modal, Button, Alert } from "flowbite-react";
+import { Table, Modal, Button, Alert, ToggleSwitch } from "flowbite-react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 
@@ -69,6 +69,31 @@ const DashUsers = () => {
     }
   };
 
+  const handleRoleChange = async (userId, role, value) => {
+    try {
+      const res = await fetch(`/api/user/updaterole/${userId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ [role]: value }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setUsers((prev) =>
+          prev.map((user) =>
+            user._id === userId ? { ...user, [role]: value } : user
+          )
+        );
+      } else {
+        setErrorMessage(data.message);
+      }
+    } catch (error) {
+      console.log(error.message);
+      setErrorMessage(error.message);
+    }
+  };
+
   return (
     <div
       className="table-auto w-full overflow-x-scroll md:mx-auto p-4 scrollbar
@@ -113,18 +138,20 @@ const DashUsers = () => {
                   <Table.Cell>{user.email}</Table.Cell>
                   <Table.Cell>{user._id}</Table.Cell>
                   <Table.Cell>
-                    {user.isAdmin ? (
-                      <FaCheck className="text-green-500" />
-                    ) : (
-                      <FaTimes className="text-red-500" />
-                    )}
+                    <ToggleSwitch
+                      checked={user.isAdmin}
+                      onChange={(checked) =>
+                        handleRoleChange(user._id, "isAdmin", checked)
+                      }
+                    />
                   </Table.Cell>
                   <Table.Cell>
-                    {user.isAuthor ? (
-                      <FaCheck className="text-green-500" />
-                    ) : (
-                      <FaTimes className="text-red-500" />
-                    )}
+                    <ToggleSwitch
+                      checked={user.isAuthor}
+                      onChange={(checked) =>
+                        handleRoleChange(user._id, "isAuthor", checked)
+                      }
+                    />
                   </Table.Cell>
                   <Table.Cell>
                     <span
