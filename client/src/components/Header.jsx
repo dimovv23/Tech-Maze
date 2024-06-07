@@ -79,7 +79,7 @@ const Header = () => {
       </Button>
       <div className="flex gap-2 md:order-2">
         <Button
-          className="w-12 h-10 hidden sm:inline"
+          className="w-12 h-10 sm:inline"
           color="gray"
           pill
           onClick={() => dispatch(toggleTheme())}
@@ -114,15 +114,7 @@ const Header = () => {
             </Button>
           </Link>
         )}
-
-        <Navbar.Toggle />
       </div>
-      <Navbar.Collapse>
-        <Navbar.Link active={path === "/"} as={"div"}>
-          <Link to="/">Home</Link>
-        </Navbar.Link>
-        {/* TODO: Add rest of the pages */}
-      </Navbar.Collapse>
     </Navbar>
   );
 };
