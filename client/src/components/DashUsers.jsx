@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Table, Modal, Button, Alert, ToggleSwitch } from "flowbite-react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 const DashUsers = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -11,7 +12,7 @@ const DashUsers = () => {
   const [showModal, setShowModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [userIdToDelete, setUserIdToDelete] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -31,8 +32,10 @@ const DashUsers = () => {
     };
     if (currentUser.isAdmin) {
       fetchUsers();
+    } else {
+      navigate("/");
     }
-  }, []);
+  }, [currentUser.isAdmin, navigate]);
 
   const handleShowMore = async () => {
     const startIndex = users.length;
@@ -101,11 +104,6 @@ const DashUsers = () => {
      dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500"
     >
       {errorMessage && <Alert color="failure">{errorMessage}</Alert>}
-      {!currentUser.isAdmin && (
-        <Alert color="failure">
-          You are not allowed to perfrom this action
-        </Alert>
-      )}
       {currentUser.isAdmin && users.length > 0 && (
         <>
           <Table hoverable className="shadow-md">

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Table, Modal, Button, Alert } from "flowbite-react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 const DashComments = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -11,6 +12,7 @@ const DashComments = () => {
   const [showModal, setShowModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [commentIdToDelete, setCommentIdToDelete] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -31,8 +33,10 @@ const DashComments = () => {
     };
     if (currentUser.isAdmin) {
       fetchComments();
+    } else {
+      navigate("/");
     }
-  }, []);
+  }, [currentUser.isAdmin, navigate]);
 
   const handleShowMore = async () => {
     const startIndex = comments.length;

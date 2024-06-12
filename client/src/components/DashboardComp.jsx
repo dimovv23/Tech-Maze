@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { HiDocumentText, HiUserGroup, HiArrowNarrowUp } from "react-icons/hi";
 import { FaComments } from "react-icons/fa";
 import { Button, Table } from "flowbite-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const DashboardComp = () => {
   const [users, setUsers] = useState([]);
@@ -15,6 +15,7 @@ const DashboardComp = () => {
   const [lastMonthUsers, setLastMonthUsers] = useState(0);
   const [lastMonthPosts, setLastMonthPosts] = useState(0);
   const [lastMonthComments, setLastMonthComments] = useState(0);
+  const navigate = useNavigate();
 
   const { currentUser } = useSelector((state) => state.user);
 
@@ -62,8 +63,10 @@ const DashboardComp = () => {
       fetchUsers();
       fetchPosts();
       fetchComments();
+    } else {
+      navigate("/");
     }
-  }, [currentUser]);
+  }, [currentUser.isAdmin, navigate]);
 
   return (
     <div className="p-3 md:mx-auto">

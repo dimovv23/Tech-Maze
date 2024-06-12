@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Table, Modal, Button, Alert } from "flowbite-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 const DashPosts = () => {
@@ -11,6 +11,7 @@ const DashPosts = () => {
   const [showModal, setShowModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [postIdToDelete, setPostIdToDelete] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -29,10 +30,12 @@ const DashPosts = () => {
         console.log(error.message);
       }
     };
-    if (currentUser.isAdmin || currentUser.isAuthor) {
+    if (currentUser.isAuthor) {
       fetchPosts();
+    } else {
+      navigate("/");
     }
-  }, [currentUser._id]);
+  }, [currentUser.isAuthor, navigate]);
 
   const handleShowMore = async () => {
     const startIndex = userPosts.length;
