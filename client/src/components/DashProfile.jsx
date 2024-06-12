@@ -116,12 +116,20 @@ const DashProfile = () => {
       });
       const data = await res.json();
       if (!res.ok) {
-        dispatch(updateFailure(data.message));
-        setUpdateUserError(data.message);
+        if (data.message.includes("duplicate key error")) {
+          setUpdateUserError("Email or username is already in use.");
+          dispatch(updateFailure(data.message));
+        } else {
+          dispatch(updateFailure(data.message));
+          setUpdateUserError(data.message);
+        }
         return;
       } else {
         dispatch(updateSuccess(data));
         setUpdateUserSuccess("Updated successfully!");
+        setTimeout(() => {
+          setUpdateUserSuccess(null);
+        }, 3000);
       }
     } catch (error) {
       dispatch(updateFailure(error.message));

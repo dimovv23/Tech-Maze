@@ -63,6 +63,10 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      if (!formData.category || formData.category === "uncategorized") {
+        setPublishError("Please select a category");
+        return;
+      }
       const res = await fetch("/api/post/create", {
         method: "POST",
         headers: {
