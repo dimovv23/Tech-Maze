@@ -55,7 +55,7 @@ const Home = () => {
               <img
                 src={latestPost.image}
                 alt="post image"
-                className="min-w-full object-cover max-h-[70vh]"
+                className="min-w-full object-cover max-h-[60vh]"
               />
             </div>
           </Link>
